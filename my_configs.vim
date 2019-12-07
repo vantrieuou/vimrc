@@ -1,12 +1,38 @@
 " Set colorcheme
 colorscheme gruvbox
 
-" LARAVEL UNTILITIES
-nmap <Leader>lr :e app/Http/routes.php<cr>
-nmap <Leader>lm :!php artisan make:
-nmap <Leader>lc :CtrlPCurWD<cr>app/Http/Controllers/
-nmap <Leader>lm :CtrlPCurWD<cr>app/
-nmap <Leader>lv :CtrlPCurWD<cr>resources/views/
+" set cursorcolumn
+set cursorline       
+autocmd InsertEnter * set nocuc
+autocmd InsertEnter * set cul
+autocmd InsertLeave * set cuc
+autocmd InsertLeave * set cul
+
+" Require install vim-gtk or vim-gnome
+set clipboard^=unnamed,unnamedplus
+
+" Select and search selected text in corresposing search provider 
+function! SelectionAndCallBrowser(url) range
+    let l:saved_reg = @"
+    execute "normal! vgvy"
+
+    let l:pattern = escape(@", "\\/.*'$^~[]")
+    let l:pattern = substitute( l:pattern, "\n$", "", "")
+    call CmdLine("!google-chrome '" . a:url . l:pattern . "'" )
+
+    let @/ = l:pattern
+    let @" = l:saved_reg
+endfunction
+
+vnoremap <silent> lw :<C-u>call SelectionAndCallBrowser("https://ludwig.guru/s/")<CR>/<C-R>=@/<CR><CR>
+vnoremap <silent> gg :<C-u>call SelectionAndCallBrowser("https://www.google.com/search?q=")<CR>/<C-R>=@/<CR><CR>
+vnoremap <silent> php  :<C-u>call SelectionAndCallBrowser("http://php.net/manual-lookup.php?pattern=")<CR>/<C-R>=@/<CR><CR>
+vnoremap <silent> js  :<C-u>call SelectionAndCallBrowser("https://developer.mozilla.org/en-US/search?topic=js&q=")<CR>/<C-R>=@/<CR><CR>
+vnoremap <silent> css  :<C-u>call SelectionAndCallBrowser("https://developer.mozilla.org/en-US/search?topic=css&q=")<CR>/<C-R>=@/<CR><CR>
+vnoremap <silent> vue  :<C-u>call SelectionAndCallBrowser("https://www.google.com.vn/search?q=+site:vuejs.org/v2/guide/+")<CR>/<C-R>=@/<CR><CR>
+vnoremap <silent> lrv  :<C-u>call SelectionAndCallBrowser("https://www.google.com.vn/search?q=+site:laravel.com/docs/5.7+")<CR>/<C-R>=@/<CR><CR>
+vnoremap <silent> doc  :<C-u>call SelectionAndCallBrowser("https://docs.docker.com/search/?q=")<CR>/<C-R>=@/<CR><CR>
+
 
 " MAKE EASY TO EDIT CONFIG
 " nmap <Leader>es :e ~/.vim_runtime/sources_non_forked/vim-snippets/snippets/
@@ -66,3 +92,18 @@ imap <leader>; <Esc>A;<Esc>
 " Reload buffer and discard all content is changed
 map <C-F5> :edit!<cr>
 map <C-a> <Esc>ggVG
+
+
+" LARAVEL UNTILITIES
+nmap <Leader>lr :e app/Http/routes.php<cr>
+nmap <Leader>lm :!php artisan make:
+nmap <Leader>lc :CtrlPCurWD<cr>app/Http/Controllers/
+nmap <Leader>lm :CtrlPCurWD<cr>app/
+nmap <Leader>lv :CtrlPCurWD<cr>resources/views/
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugins config
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
