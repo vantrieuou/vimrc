@@ -1,9 +1,12 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General config
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set colorcheme
 colorscheme gruvbox
 set background=dark
 
-" set cursorcolumn
-" set cursorline       
+set cursorcolumn
+set cursorline
 autocmd InsertEnter * set nocuc
 autocmd InsertEnter * set cul
 autocmd InsertLeave * set cuc
@@ -12,7 +15,17 @@ autocmd InsertLeave * set cul
 " Require install vim-gtk or vim-gnome
 set clipboard^=unnamed,unnamedplus
 
-" Select and search selected text in corresposing search provider 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Filetype configs
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+au FileType javascript set shiftwidth=2
+au FileType javascript set tabstop=2
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Hotkeys config
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Select and search selected text in corresposing search provider
 function! SelectionAndCallBrowser(url) range
     let l:saved_reg = @"
     execute "normal! vgvy"
@@ -41,14 +54,14 @@ vnoremap <silent> doc  :<C-u>call SelectionAndCallBrowser("https://docs.docker.c
 
 " Find  exist snippet
 nmap <leader>fs :call SearchSnippetKey(input('Search Snippet: '))<cr>
-function! SearchSnippetKey(key) 
+function! SearchSnippetKey(key)
     call CmdLine("Ack -G ".&filetype." ".a:key." ~/.vim_runtime/sources_non_forked/vim-snippets \n")
     return
 endfunction
 
 "Find exist config
 nmap <leader>fc :call SearchConfig(input('Search Config: '))<cr>
-function! SearchConfig(key) 
+function! SearchConfig(key)
     call CmdLine("Ack ".a:key." ~/.vim_runtime/vimrcs/\n")
     return
 endfunction
@@ -85,7 +98,7 @@ autocmd VimEnter * nested call RestoreSess()
 
 
 """"""""""""""""""""""""""""""
-" CODING UNTILITIES 
+" CODING UNTILITIES
 """""""""""""""""""""""""""""
 nmap <leader>; <Esc>A;<Esc>
 imap <leader>; <Esc>A;<Esc>
@@ -103,7 +116,6 @@ nmap <Leader>lm :CtrlPCurWD<cr>app/
 nmap <Leader>lv :CtrlPCurWD<cr>resources/views/
 
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -112,3 +124,57 @@ nmap <Leader>lv :CtrlPCurWD<cr>resources/views/
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Syntastic (syntax checker)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ale_linters = {
+\   'python': ['flake8'],
+\   'go': ['go', 'golint', 'errcheck'],
+\   'php': ['langserver', 'php'],
+\   'yaml': 'yamllint',
+\   'javascript': ['standard', 'eslint'],
+\}
+
+
+" Run ALE fixe
+" let g:ale_fixers = {
+" \   '*': ['remove_trailing_lines', 'trim_whitespace', 'eslint'],
+" \}
+" Use a slightly slimmer error pointer
+" let g:ale_sign_error = '✖'
+" hi ALEErrorSign guifg=#DF8C8C
+" let g:ale_sign_warning = '⚠'
+" hi ALEWarningSign guifg=#F2C38F
+" let g:ale_echo_cursor = 1
+nmap <leader>af <Plug>(ale_fix)
+
+let g:ale_fixers = {
+\   'javascript': ['prettier', 'eslint'],
+\   'yaml': ['prettier'],
+\   'php': ['php_cs_fixer'],
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\}
+
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_text_changed = 'never'
+highlight ALEErrorSign ctermbg=NONE ctermfg=red
+highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
+let g:ale_linters_explicit = 1
+let g:ale_lint_on_save = 1
+let g:ale_fix_on_save = 1
+let g:ale_javascript_prettier_options = '--no-semi --single-quote --trailing-comma none'
+
+""""""""""""""""""""""""""""""
+" => CTRL-P
+""""""""""""""""""""""""""""""
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Nerd Tree
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let NERDTreeShowHidden=1
