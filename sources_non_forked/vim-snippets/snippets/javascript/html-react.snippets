@@ -83,7 +83,7 @@ snippet attr
 snippet attr+
 	${1:attribute}="${2:property}" attr+
 snippet .
-	class="${1}"
+	className={${1}}
 snippet #
 	id="${1}"
 snippet alt
@@ -93,7 +93,7 @@ snippet charset
 snippet data
 	data-${1}="${2:$1}"
 snippet for
-	for="${1}"
+	htmlFor={${1}}
 snippet height
 	height="${1}"
 snippet href
@@ -122,7 +122,7 @@ snippet width
 snippet a
 	<a href="${1:#}">${0:$1}</a>
 snippet a.
-	<a class="${1}" href="${2:#}">${0:$1}</a>
+	<a className={${1}} href="${2:#}">${0:$1}</a>
 snippet a#
 	<a id="${1}" href="${2:#}">${0:$1}</a>
 snippet a:ext
@@ -155,7 +155,7 @@ snippet article
 		${0}
 	</article>
 snippet article.
-	<article class="${1}">
+	<article className={${1}}>
 		${0}
 	</article>
 snippet article#
@@ -167,7 +167,7 @@ snippet aside
 		${0}
 	</aside>
 snippet aside.
-	<aside class="${1}">
+	<aside className={${1}}>
 		${0}
 	</aside>
 snippet aside#
@@ -201,7 +201,7 @@ snippet br
 snippet button
 	<button type="${1:submit}">${0}</button>
 snippet button.
-	<button class="${1:button}" type="${2:submit}">${0}</button>
+	<button className={${1:button}} type="${2:submit}">${0}</button>
 snippet button#
 	<button id="${1}" type="${2:submit}">${0}</button>
 snippet button:s
@@ -250,7 +250,7 @@ snippet datatemplate
 snippet dd
 	<dd>${0}</dd>
 snippet dd.
-	<dd class="${1}">${0}</dd>
+	<dd className={${1}}>${0}</dd>
 snippet dd#
 	<dd id="${1}">${0}</dd>
 snippet del
@@ -268,7 +268,7 @@ snippet div
 		${0}
 	</div>
 snippet div.
-	<div class="${1}">
+	<div className={${1}}>
 		${0}
 	</div>
 snippet div#
@@ -280,7 +280,7 @@ snippet dl
 		${0}
 	</dl>
 snippet dl.
-	<dl class="${1}">
+	<dl className={${1}}>
 		${0}
 	</dl>
 snippet dl#
@@ -296,7 +296,7 @@ snippet dl+
 snippet dt
 	<dt>${0}</dt>
 snippet dt.
-	<dt class="${1}">${0}</dt>
+	<dt className={${1}}>${0}</dt>
 snippet dt#
 	<dt id="${1}">${0}</dt>
 snippet dt+
@@ -312,7 +312,7 @@ snippet fieldset
 		${0}
 	</fieldset>
 snippet fieldset.
-	<fieldset class="${1}">
+	<fieldset className={${1}}>
 		${0}
 	</fieldset>
 snippet fieldset#
@@ -334,7 +334,7 @@ snippet figure#
 		${0}
 	</figure>
 snippet figure.
-	<figure class="${1}">
+	<figure className={${1}}>
 		${0}
 	</figure>
 snippet footer
@@ -342,7 +342,7 @@ snippet footer
 		${0}
 	</footer>
 snippet footer.
-	<footer class="${1}">
+	<footer className={${1}}>
 		${0}
 	</footer>
 snippet footer#
@@ -354,7 +354,7 @@ snippet form
 		${0}
 	</form>
 snippet form.
-	<form class="${1}" action="${2}" method="${3:post}">
+	<form className={${1}} action="${2}" method="${3:post}">
 		${0}
 	</form>
 snippet form#
@@ -364,37 +364,37 @@ snippet form#
 snippet h1
 	<h1>${0}</h1>
 snippet h1.
-	<h1 class="${1}">${0}</h1>
+	<h1 className={${1}}>${0}</h1>
 snippet h1#
 	<h1 id="${1}">${0}</h1>
 snippet h2
 	<h2>${0}</h2>
 snippet h2.
-	<h2 class="${1}">${0}</h2>
+	<h2 className={${1}}>${0}</h2>
 snippet h2#
 	<h2 id="${1}">${0}</h2>
 snippet h3
 	<h3>${0}</h3>
 snippet h3.
-	<h3 class="${1}">${0}</h3>
+	<h3 className={${1}}>${0}</h3>
 snippet h3#
 	<h3 id="${1}">${0}</h3>
 snippet h4
 	<h4>${0}</h4>
 snippet h4.
-	<h4 class="${1}">${0}</h4>
+	<h4 className={${1}}>${0}</h4>
 snippet h4#
 	<h4 id="${1}">${0}</h4>
 snippet h5
 	<h5>${0}</h5>
 snippet h5.
-	<h5 class="${1}">${0}</h5>
+	<h5 className={${1}}>${0}</h5>
 snippet h5#
 	<h5 id="${1}">${0}</h5>
 snippet h6
 	<h6>${0}</h6>
 snippet h6.
-	<h6 class="${1}">${0}</h6>
+	<h6 className={${1}}>${0}</h6>
 snippet h6#
 	<h6 id="${1}">${0}</h6>
 snippet head
@@ -409,7 +409,7 @@ snippet header
 		${0}
 	</header>
 snippet header.
-	<header class="${1}">
+	<header className={${1}}>
 		${0}
 	</header>
 snippet header#
@@ -465,19 +465,19 @@ snippet i
 snippet iframe
 	<iframe src="${1}" frameborder="0"></iframe>
 snippet iframe.
-	<iframe class="${1}" src="${2}" frameborder="0"></iframe>
+	<iframe className={${1}} src="${2}" frameborder="0"></iframe>
 snippet iframe#
 	<iframe id="${1}" src="${2}" frameborder="0"></iframe>
 snippet img
 	<img src="${1}" alt="${2}">
 snippet img.
-	<img class="${1}" src="${2}" alt="${3}">
+	<img className={${1}} src="${2}" alt="${3}">
 snippet img#
 	<img id="${1}" src="${2}" alt="${3}">
 snippet input
 	<input type="${1:text/submit/hidden/button/image}" name="${2}" id="${3:$2}" value="${4}">
 snippet input.
-	<input class="${1}" type="${2:text/submit/hidden/button/image}" name="${3}" id="${4:$3}" value="${5}">
+	<input className={${1}} type="${2:text/submit/hidden/button/image}" name="${3}" id="${4:$3}" value="${5}">
 snippet input:text
 	<input type="text" name="${1}" id="${2:$1}" value="${3}">
 snippet input:submit
@@ -527,12 +527,12 @@ snippet ins
 snippet kbd
 	<kbd>${0}</kbd>
 snippet label
-	<label for="${0:$1}">${1}</label>
+	<label htmlFor={${0:$1}}>${1}</label>
 snippet label:i
-	<label for="${2:$1}">${1}</label>
+	<label htmlFor={${2:$1}}>${1}</label>
 	<input type="${3:text/submit/hidden/button}" name="${4:$2}" id="${5:$2}" value="${6}" />
 snippet label:s
-	<label for="${2:$1}">${1}</label>
+	<label htmlFor={${2:$1}}>${1}</label>
 	<select name="${3:$2}" id="${4:$2}">
 		<option value="${5}">${0:$5}</option>
 	</select>
@@ -543,7 +543,7 @@ snippet legend+
 snippet li
 	<li>${0}</li>
 snippet li.
-	<li class="${1}">${0}</li>
+	<li className={${1}}>${0}</li>
 snippet li+
 	<li>${1}</li>
 	li+
@@ -575,7 +575,7 @@ snippet map
 		${0}
 	</map>
 snippet map.
-	<map class="${1}" name="${2}">
+	<map className={${1}} name="${2}">
 		${0}
 	</map>
 snippet map#
@@ -619,7 +619,7 @@ snippet nav
 		${0}
 	</nav>
 snippet nav.
-	<nav class="${1}">
+	<nav className={${1}}>
 		${0}
 	</nav>
 snippet nav#
@@ -652,7 +652,7 @@ snippet ol
 		${0}
 	</ol>
 snippet ol.
-	<ol class="${1}">
+	<ol className={${1}}>
 		${0}
 	</ol>
 snippet ol#
@@ -681,7 +681,7 @@ snippet output
 snippet p
 	<p>${0}</p>
 snippet p.
-	<p class="${1}">${0}</p>
+	<p className={${1}}>${0}</p>
 snippet p#
 	<p id="${1}">${0}</p>
 snippet param
@@ -725,7 +725,7 @@ snippet section
 		${0}
 	</section>
 snippet section.
-	<section class="${1}">
+	<section className={${1}}>
 		${0}
 	</section>
 snippet section#
@@ -752,7 +752,7 @@ snippet source
 snippet span
 	<span>${0}</span>
 snippet span.
-	<span class="${1}">${0}</span>
+	<span className={${1}}>${0}</span>
 snippet span#
 	<span id="${1}">${0}</span>
 snippet strong
@@ -774,7 +774,7 @@ snippet table
 		${0}
 	</table>
 snippet table.
-	<table class="${1}">
+	<table className={${1}}>
 		${0}
 	</table>
 snippet table#
@@ -788,7 +788,7 @@ snippet tbody
 snippet td
 	<td>${0}</td>
 snippet td.
-	<td class="${1}">${0}</td>
+	<td className={${1}}>${0}</td>
 snippet td#
 	<td id="${1}">${0}</td>
 snippet td+
@@ -803,7 +803,7 @@ snippet tfoot
 snippet th
 	<th>${0}</th>
 snippet th.
-	<th class="${1}">${0}</th>
+	<th className={${1}}>${0}</th>
 snippet th#
 	<th id="${1}">${0}</th>
 snippet th+
@@ -833,7 +833,7 @@ snippet ul
 		${0}
 	</ul>
 snippet ul.
-	<ul class="${1}">
+	<ul className={${1}}>
 		${0}
 	</ul>
 snippet ul#
@@ -850,7 +850,7 @@ snippet var
 snippet video
 	<video src="${1}" height="${2}" width="${3}" preload="${4:none}" autoplay="${5:autoplay}">${6}</video>
 snippet video.
-	<video class="${1}" src="${2}" height="${3}" width="${4}" preload="${5:none}" autoplay="${6:autoplay}">${7}</video>
+	<video className={${1}} src="${2}" height="${3}" width="${4}" preload="${5:none}" autoplay="${6:autoplay}">${7}</video>
 snippet wbr
 	<wbr>
 snippet viewport
