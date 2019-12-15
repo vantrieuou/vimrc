@@ -164,7 +164,7 @@ highlight ALEErrorSign ctermbg=NONE ctermfg=red
 highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 let g:ale_linters_explicit = 1
 let g:ale_lint_on_save = 1
-" let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 1
 let g:ale_javascript_eslint_use_global = 1
 " let g:ale_javascript_prettier_options = '--no-semi --single-quote --trailing-comma none'
 
