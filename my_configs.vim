@@ -185,5 +185,5 @@ let NERDTreeShowHidden=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 " let g:EditorConfig_disable_rules = ['trim_trailing_whitespace']
-let g:EditorConfig_core_mode = 'external_command'
-let g:EditorConfig_verbose=1
+let g:EditorConfig_core_mode = 'vim_core'
+" let g:EditorConfig_verbose=1
