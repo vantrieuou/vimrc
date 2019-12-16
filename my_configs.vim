@@ -93,6 +93,16 @@ autocmd VimEnter * nested call RestoreSess()
 """"""""""""""""""""""""""""""
 " CODING UNTILITIES
 """""""""""""""""""""""""""""
+fu! InitializeEditorConfig()
+    call CmdLine('!cp -r ~/.vim_runtime/setup_environment/editor_config/. '.getcwd().'/')
+endfunction
+nmap <leader>ie :call InitializeEditorConfig()<cr>
+imap <leader>ie :call InitializeEditorConfig()<cr>
+
+
+""""""""""""""""""""""""""""""
+" CODING UNTILITIES
+"""""""""""""""""""""""""""""
 nmap <leader>; <Esc>A;<Esc>
 imap <leader>; <Esc>A;<Esc>
 
