@@ -1,0 +1,51 @@
+# laravel
+/public/hot
+/public/css
+/public/js
+/public/fronts
+/public/fonts
+/public/storage
+/storage/*.key
+/vendor
+Homestead.json
+Homestead.yaml
+
+#laravel configs
+.env
+.env.production
+
+# npm dependencies
+/node_modules
+/.pnp
+.pnp.js
+yarn.lock
+!/yarn.lock
+test/node_modules
+
+# npm testing
+.nyc_output
+/coverage
+
+# npm production
+/build
+
+
+# test output
+test/**/out*
+test/**/next-env.d.ts
+.DS_Store
+
+# misc
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+.php_cs.cache
+.session.vim
+tags
+.phpunit.result.cache
+npm-debug.log
+yarn-error.log
+composer.lock
+package-lock.json
