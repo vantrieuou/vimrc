@@ -18,8 +18,8 @@ set clipboard^=unnamed,unnamedplus
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Filetype configs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-au FileType javascript set shiftwidth=2
-au FileType javascript set tabstop=2
+" au FileType javascript set shiftwidth=2
+" au FileType javascript set tabstop=2
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Hotkeys config
@@ -178,3 +178,12 @@ let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
 " => Nerd Tree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let NERDTreeShowHidden=1
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => editorconfig-vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+" let g:EditorConfig_disable_rules = ['trim_trailing_whitespace']
+let g:EditorConfig_core_mode = 'external_command'
+let g:EditorConfig_verbose=1
