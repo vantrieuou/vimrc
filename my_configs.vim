@@ -66,29 +66,6 @@ function! SearchConfig(key)
     return
 endfunction
 
-""""""""""""""""""""""""""""""
-" Current session is saved in the working directory automatically when vim is closing
-" The session is restored correspondingly when vim is opened in the working directory
-"""""""""""""""""""""""""""""
-fu! SaveSess()
-    execute 'mksession! ' . getcwd() . '/.session.vim'
-endfunction
-
-fu! RestoreSess()
-if filereadable(getcwd() . '/.session.vim')
-    execute 'so ' . getcwd() . '/.session.vim'
-endif
-endfunction
-
-" autocmd VimLeave * call SaveSess()
-nmap <leader>ss :call SaveSess()<cr>
-imap <leader>ss :call SaveSess()<cr>
-
-
-" nmap <leader>rs :call RestoreSess()<cr>
-" imap <leader>rs :call RestoreSess()<cr>
-autocmd VimEnter * nested call RestoreSess()
-
 
 """"""""""""""""""""""""""""""
 " insert editor config automatically
@@ -189,3 +166,10 @@ let NERDTreeShowHidden=1
 " let g:EditorConfig_disable_rules = ['trim_trailing_whitespace']
 let g:EditorConfig_core_mode = 'vim_core'
 " let g:EditorConfig_verbose=1
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-session
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:session_autosave = 'yes'
+let g:session_autoload = 'yes'
