@@ -173,3 +173,6 @@ let g:EditorConfig_core_mode = 'vim_core'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:session_autosave = 'yes'
 let g:session_autoload = 'yes'
+" let g:session_autosave_to = getcwd()
+let g:session_directory = getcwd()
+" let g:session_default_name = '.session.vim'
