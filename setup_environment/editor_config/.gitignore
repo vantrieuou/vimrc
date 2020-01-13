@@ -43,9 +43,11 @@ test/**/next-env.d.ts
 
 .php_cs.cache
 .session.vim
+default.vim
 tags
 .phpunit.result.cache
 npm-debug.log
 yarn-error.log
 composer.lock
 package-lock.json
+npm_eslint_prettier_setup.sh
