@@ -87,14 +87,6 @@ map <C-F5> :edit!<cr>
 map <C-a> <Esc>ggVG
 
 
-" LARAVEL UNTILITIES
-nmap <Leader>lr :e app/Http/routes.php<cr>
-nmap <Leader>lm :!php artisan make:
-nmap <Leader>lc :CtrlPCurWD<cr>app/Http/Controllers/
-nmap <Leader>lm :CtrlPCurWD<cr>app/
-nmap <Leader>lv :CtrlPCurWD<cr>resources/views/
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
