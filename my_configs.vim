@@ -151,11 +151,12 @@ let g:ale_javascript_eslint_use_global = 1
 " => CTRL-P
 """"""""""""""""""""""""""""""
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
+let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|\.next\|^\.coffee\|tags'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Nerd Tree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let NERDTreeIgnore = ['\.pyc$', '__pycache__', 'tags', '\.next$', '\.git$', 'node_modules', 'default\.vim']
 let NERDTreeShowHidden=1
 
 
