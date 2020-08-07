@@ -169,3 +169,17 @@ let g:session_autoload = 'yes'
 " let g:session_autosave_to = getcwd()
 let g:session_directory = getcwd()
 " let g:session_default_name = '.session.vim'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => emmet-vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+let g:user_emmet_leader_key=','
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => tagalong
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:tagalong_verbose = 1
