@@ -173,13 +173,41 @@ let g:session_directory = getcwd()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => emmet-vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
+let g:user_emmet_install_global = 1
+" autocmd FileType html,css,php EmmetInstall
 let g:user_emmet_leader_key=','
-
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => tagalong
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 let g:tagalong_verbose = 1
+let g:tagalong_additional_filetypes = ['javascript', 'js']
+
+
+let g:lightline = {
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename',
+      \ },
+      \ }
+
+function! LightlineFilename()
+  let root = fnamemodify(get(b:, 'git_dir'), ':h')
+  let path = expand('%:p')
+  if path[:len(root)-1] ==# root
+    return path[len(root)+1:]
+  endif
+  return expand('%')
+endfunction
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-php-namespace
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function! IPhpInsertUse()
+    call PhpInsertUse()
+    call feedkeys('a',  'n')
+endfunction
+autocmd FileType php inoremap <Leader>pu <Esc>:call IPhpInsertUse()<CR>
+autocmd FileType php noremap <Leader>pu :call PhpInsertUse()<CR>
