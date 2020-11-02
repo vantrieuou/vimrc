@@ -22,6 +22,7 @@ vim-misc https://github.com/xolox/vim-misc
 vim-session https://github.com/xolox/vim-session
 emmet-vim https://github.com/mattn/emmet-vim
 tagalong.vim https://github.com/AndrewRadev/tagalong.vim
+tagbar https://github.com/preservim/tagbar
 vim-php-namespace https://github.com/arnaud-lb/vim-php-namespace
 """.strip()
 

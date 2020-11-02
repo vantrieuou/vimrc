@@ -32,7 +32,7 @@ function! SelectionAndCallBrowser(url) range
 
     let l:pattern = escape(@", "\\/.*'$^~[]")
     let l:pattern = substitute( l:pattern, "\n$", "", "")
-    call CmdLine("!google-chrome '" . a:url . l:pattern . "'" )
+    call CmdLine("!open '" . a:url . l:pattern . "'" )
 
     let @/ = l:pattern
     let @" = l:saved_reg
@@ -40,6 +40,8 @@ endfunction
 
 vnoremap <silent> lw :<C-u>call SelectionAndCallBrowser("https://ludwig.guru/s/")<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> gg :<C-u>call SelectionAndCallBrowser("https://www.google.com/search?q=")<CR>/<C-R>=@/<CR><CR>
+vnoremap <silent> ox :<C-u>call SelectionAndCallBrowser("https://www.oxfordlearnersdictionaries.com/search/english/?q=")<CR>/<C-R>=@/<CR><CR>
+vnoremap <silent> aw :<C-u>call SelectionAndCallBrowser("https://docs.aws.amazon.com/search/doc-search.html?searchPath=documentation&searchQuery=")<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> php  :<C-u>call SelectionAndCallBrowser("http://php.net/manual-lookup.php?pattern=")<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> js  :<C-u>call SelectionAndCallBrowser("https://developer.mozilla.org/en-US/search?topic=js&q=")<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> css  :<C-u>call SelectionAndCallBrowser("https://developer.mozilla.org/en-US/search?topic=css&q=")<CR>/<C-R>=@/<CR><CR>
@@ -47,10 +49,6 @@ vnoremap <silent> vue  :<C-u>call SelectionAndCallBrowser("https://www.google.co
 vnoremap <silent> lrv  :<C-u>call SelectionAndCallBrowser("https://www.google.com.vn/search?q=+site:laravel.com/docs/5.7+")<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> doc  :<C-u>call SelectionAndCallBrowser("https://docs.docker.com/search/?q=")<CR>/<C-R>=@/<CR><CR>
 
-
-" MAKE EASY TO EDIT CONFIG
-" nmap <Leader>es :e ~/.vim_runtime/sources_non_forked/vim-snippets/snippets/
-" nmap <Leader>ep :e ~/.vim_runtime/vimrcs/plugins_config.vim<cr>
 
 " Find  exist snippet
 nmap <leader>fs :call SearchSnippetKey(input('Search Snippet: '))<cr>
@@ -83,7 +81,9 @@ nmap <leader>; <Esc>A;<Esc>
 imap <leader>; <Esc>A;<Esc>
 
 " Reload buffer and discard all content is changed
-map <C-F5> :edit!<cr>
+map <C-m> :edit!<cr>
+
+
 map <C-a> <Esc>ggVG
 
 
@@ -106,6 +106,7 @@ let g:ale_linters = {
 \   'php': ['langserver', 'php'],
 \   'yaml': 'yamllint',
 \   'javascript': ['standard', 'eslint'],
+\   'html': ['eslint'],
 \}
 
 
@@ -126,6 +127,7 @@ let g:ale_fixers = {
 \   'yaml': ['prettier'],
 \   'php': ['php_cs_fixer'],
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'html': ['prettier'],
 \}
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
@@ -166,8 +168,8 @@ let g:EditorConfig_core_mode = 'vim_core'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:session_autosave = 'yes'
 let g:session_autoload = 'yes'
-" let g:session_autosave_to = getcwd()
-let g:session_directory = getcwd()
+let g:session_autosave_to = getcwd()
+" let g:session_directory = getcwd()
 " let g:session_default_name = '.session.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -211,3 +213,15 @@ function! IPhpInsertUse()
 endfunction
 autocmd FileType php inoremap <Leader>pu <Esc>:call IPhpInsertUse()<CR>
 autocmd FileType php noremap <Leader>pu :call PhpInsertUse()<CR>
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => tagbar
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <Leader>t :TagbarToggle<CR>
+
+
+" MAKE EASY TO EDIT CONFIG
+nmap <Leader>wr :edit apps/web_admin/application/config/routes.php<cr>
+" nmap <Leader>ep :e ~/.vim_runtime/vimrcs/plugins_config.vim<cr>
