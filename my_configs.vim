@@ -106,9 +106,11 @@ let g:ale_linters = {
 \   'php': ['langserver', 'php'],
 \   'yaml': 'yamllint',
 \   'javascript': ['standard', 'eslint'],
-\   'html': ['eslint'],
+\   'html': ['tidy', 'eslint'],
 \}
 
+let g:ale_html_tidy_executable = '/usr/bin/tidy'
+" let g:ale_linter_aliases = {'html': ['html', 'javascript']}
 
 " Run ALE fixe
 " let g:ale_fixers = {
