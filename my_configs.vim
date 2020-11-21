@@ -15,9 +15,6 @@ autocmd InsertLeave * set cul
 " Require install vim-gtk or vim-gnome
 set clipboard^=unnamed,unnamedplus
 
-" set spelling in english
-setlocal spell spelllang=en_us
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Filetype configs
@@ -237,6 +234,14 @@ nmap <Leader>t :TagbarToggle<CR>
 " => vim-rest-console
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set ft=rest
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => spelunker.vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nospell
+let g:enable_spelunker_vim = 1
+
 
 
 " MAKE EASY TO EDIT CONFIG

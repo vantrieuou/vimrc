@@ -25,6 +25,7 @@ tagalong.vim https://github.com/AndrewRadev/tagalong.vim
 tagbar https://github.com/preservim/tagbar
 vim-php-namespace https://github.com/arnaud-lb/vim-php-namespace
 vim-rest-console https://github.com/diepm/vim-rest-console
+spelunker.vim https://github.com/kamykn/spelunker.vim
 """.strip()
 
 GITHUB_ZIP = '%s/archive/master.zip'
