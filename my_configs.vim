@@ -15,6 +15,10 @@ autocmd InsertLeave * set cul
 " Require install vim-gtk or vim-gnome
 set clipboard^=unnamed,unnamedplus
 
+" set spelling in english
+setlocal spell spelllang=en_us
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Filetype configs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -105,7 +109,7 @@ let g:ale_linters = {
 \   'go': ['go', 'golint', 'errcheck'],
 \   'php': ['langserver', 'php'],
 \   'yaml': 'yamllint',
-\   'javascript': ['standard', 'eslint'],
+\   'javascript': ['eslint'],
 \   'html': ['tidy', 'eslint'],
 \}
 
@@ -125,12 +129,14 @@ let g:ale_html_tidy_executable = '/usr/bin/tidy'
 nmap <leader>af <Plug>(ale_fix)
 
 let g:ale_fixers = {
-\   'javascript': ['prettier', 'eslint'],
-\   'yaml': ['prettier'],
-\   'php': ['php_cs_fixer'],
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'yaml': ['prettier'],
 \   'html': ['prettier'],
+\   'javascript': ['eslint'],
+\   'php': ['php_cs_fixer'],
 \}
+
+
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
 let g:ale_lint_on_enter = 0
@@ -142,6 +148,9 @@ let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
 let g:ale_javascript_eslint_use_global = 1
 " let g:ale_javascript_prettier_options = '--no-semi --single-quote --trailing-comma none'
+let g:ale_php_phpcs_standard =  getcwd() . '/phpcs.xml'
+let g:ale_php_phpmd_ruleset = getcwd() .'/phpmd.xml'
+" let g:ale_javascript_eslint_options = '--rule "no-var: 1"'
 
 """"""""""""""""""""""""""""""
 " => CTRL-P
@@ -224,6 +233,13 @@ autocmd FileType php noremap <Leader>pu :call PhpInsertUse()<CR>
 nmap <Leader>t :TagbarToggle<CR>
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-rest-console
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set ft=rest
+
+
 " MAKE EASY TO EDIT CONFIG
 nmap <Leader>wr :edit apps/web_admin/application/config/routes.php<cr>
+nmap <Leader>ar :edit apps/web_api/application/config/routes.php<cr>
 " nmap <Leader>ep :e ~/.vim_runtime/vimrcs/plugins_config.vim<cr>
