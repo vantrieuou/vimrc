@@ -15,6 +15,7 @@ autocmd InsertLeave * set cul
 " Require install vim-gtk or vim-gnome
 set clipboard^=unnamed,unnamedplus
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Filetype configs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -105,10 +106,12 @@ let g:ale_linters = {
 \   'go': ['go', 'golint', 'errcheck'],
 \   'php': ['langserver', 'php'],
 \   'yaml': 'yamllint',
-\   'javascript': ['standard', 'eslint'],
-\   'html': ['eslint'],
+\   'javascript': ['eslint'],
+\   'html': ['tidy', 'eslint'],
 \}
 
+let g:ale_html_tidy_executable = '/usr/bin/tidy'
+" let g:ale_linter_aliases = {'html': ['html', 'javascript']}
 
 " Run ALE fixe
 " let g:ale_fixers = {
@@ -123,12 +126,14 @@ let g:ale_linters = {
 nmap <leader>af <Plug>(ale_fix)
 
 let g:ale_fixers = {
-\   'javascript': ['prettier', 'eslint'],
-\   'yaml': ['prettier'],
-\   'php': ['php_cs_fixer'],
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'yaml': ['prettier'],
 \   'html': ['prettier'],
+\   'javascript': ['eslint'],
+\   'php': ['php_cs_fixer'],
 \}
+
+
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
 let g:ale_lint_on_enter = 0
@@ -140,6 +145,9 @@ let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
 let g:ale_javascript_eslint_use_global = 1
 " let g:ale_javascript_prettier_options = '--no-semi --single-quote --trailing-comma none'
+let g:ale_php_phpcs_standard =  getcwd() . '/phpcs.xml'
+let g:ale_php_phpmd_ruleset = getcwd() .'/phpmd.xml'
+" let g:ale_javascript_eslint_options = '--rule "no-var: 1"'
 
 """"""""""""""""""""""""""""""
 " => CTRL-P
@@ -168,8 +176,8 @@ let g:EditorConfig_core_mode = 'vim_core'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:session_autosave = 'yes'
 let g:session_autoload = 'yes'
-let g:session_autosave_to = getcwd()
-" let g:session_directory = getcwd()
+" let g:session_autosave_to = getcwd()
+let g:session_directory = getcwd()
 " let g:session_default_name = '.session.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -222,6 +230,21 @@ autocmd FileType php noremap <Leader>pu :call PhpInsertUse()<CR>
 nmap <Leader>t :TagbarToggle<CR>
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-rest-console
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set ft=rest
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => spelunker.vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nospell
+let g:enable_spelunker_vim = 1
+
+
+
 " MAKE EASY TO EDIT CONFIG
 nmap <Leader>wr :edit apps/web_admin/application/config/routes.php<cr>
+nmap <Leader>ar :edit apps/web_api/application/config/routes.php<cr>
 " nmap <Leader>ep :e ~/.vim_runtime/vimrcs/plugins_config.vim<cr>
