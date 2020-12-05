@@ -130,9 +130,9 @@ let g:ale_fixers = {
 \   'yaml': ['prettier'],
 \   'html': ['prettier'],
 \   'javascript': ['eslint'],
-\   'php': ['php_cs_fixer'],
 \}
 
+" \   'php': ['php_cs_fixer'],
 
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
@@ -145,8 +145,8 @@ let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
 let g:ale_javascript_eslint_use_global = 1
 " let g:ale_javascript_prettier_options = '--no-semi --single-quote --trailing-comma none'
-let g:ale_php_phpcs_standard =  getcwd() . '/phpcs.xml'
-let g:ale_php_phpmd_ruleset = getcwd() .'/phpmd.xml'
+" let g:ale_php_phpcs_standard =  getcwd() . '/phpcs.xml'
+" let g:ale_php_phpmd_ruleset = getcwd() .'/phpmd.xml'
 " let g:ale_javascript_eslint_options = '--rule "no-var: 1"'
 
 """"""""""""""""""""""""""""""
@@ -234,7 +234,16 @@ nmap <Leader>t :TagbarToggle<CR>
 " => vim-rest-console
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set ft=rest
+let b:vrc_output_buffer_name = '__NEW_VRC__.json'
+let g:vrc_curl_opts = {
+  \ '--connect-timeout' : 10,
+  \ '-L': '',
+  \ '--max-time': 60,
+  \ '--ipv4': '',
+  \ '-k': '',
+\}
 
+  " \ '-i': '',
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => spelunker.vim
@@ -242,6 +251,16 @@ set ft=rest
 set nospell
 let g:enable_spelunker_vim = 1
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-phpqa
+"http://blog.joncairns.com/2012/05/using-vim-as-a-php-ide/
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" let g:phpqa_codesniffer_cmd='php-cs-fixer'
+" let g:phpqa_codesniffer_args = "--standard=./phpcs.xml --tab-width=4"
+" let g:phpqa_messdetector_ruleset = "./phpmd.xml"
+" let g:phpqa_codesniffer_autorun = 0
+" let g:phpqa_messdetector_autorun = 0
 
 
 " MAKE EASY TO EDIT CONFIG
