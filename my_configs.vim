@@ -130,6 +130,7 @@ let g:ale_fixers = {
 \   'yaml': ['prettier'],
 \   'html': ['prettier'],
 \   'javascript': ['eslint'],
+\   'python': ['add_blank_lines_for_python_control_statements', 'black'],
 \}
 
 " \   'php': ['php_cs_fixer'],
