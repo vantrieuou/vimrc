@@ -5,12 +5,12 @@
 colorscheme gruvbox
 set background=dark
 
-set cursorcolumn
-set cursorline
-autocmd InsertEnter * set nocuc
-autocmd InsertEnter * set cul
-autocmd InsertLeave * set cuc
-autocmd InsertLeave * set cul
+" set cursorcolumn
+" set cursorline
+" autocmd InsertEnter * set nocuc
+" autocmd InsertEnter * set cul
+" autocmd InsertLeave * set cuc
+" autocmd InsertLeave * set cul
 
 " Require install vim-gtk or vim-gnome
 set clipboard^=unnamed,unnamedplus
@@ -111,6 +111,7 @@ let g:ale_linters = {
 \}
 
 let g:ale_html_tidy_executable = '/usr/bin/tidy'
+let g:ale_python_flake8_options = '--max-line-length=120'
 " let g:ale_linter_aliases = {'html': ['html', 'javascript']}
 
 " Run ALE fixe
@@ -127,12 +128,13 @@ nmap <leader>af <Plug>(ale_fix)
 
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'yaml': ['prettier'],
 \   'html': ['prettier'],
 \   'javascript': ['eslint'],
 \   'python': ['add_blank_lines_for_python_control_statements', 'black'],
 \}
 
+
+" \   'yaml': ['prettier'],
 " \   'php': ['php_cs_fixer'],
 
 let g:ale_sign_error = '✘'
