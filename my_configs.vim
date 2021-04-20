@@ -130,7 +130,7 @@ let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'html': ['prettier'],
 \   'javascript': ['eslint'],
-\   'python': ['add_blank_lines_for_python_control_statements', 'black'],
+\   'python': ['black'],
 \}
 
 
