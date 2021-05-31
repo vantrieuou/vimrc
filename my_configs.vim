@@ -255,6 +255,8 @@ set nospell
 let g:enable_spelunker_vim = 1
 
 
+let g:blamer_enabled = 1
+" let g:blamer_delay = 300
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-phpqa
 "http://blog.joncairns.com/2012/05/using-vim-as-a-php-ide/
